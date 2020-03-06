@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Futek.Telemetry.DataAccess\Futek.Telemetry.DataAccess.csproj" />
+    <ProjectReference Include="..\Futek.Telemetry.Entities\Futek.Telemetry.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Agca.Core">
+      <HintPath>..\Libraries\Agca.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

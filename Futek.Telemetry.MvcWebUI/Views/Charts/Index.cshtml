@@ -1,0 +1,221 @@
+﻿@model Futek.Telemetry.MvcWebUI.Dtos.ChartDto
+@using Newtonsoft.Json
+@{
+    Layout = null;
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="~/lib/Gauge/Gauge.min.js"></script>
+</head>
+<body>
+    <div class="container col">
+        <!--a row for each sensor-->
+        <div class="row d-flex justify-content-between">
+
+            <!--instant value-->
+            <div class="col-6 d-flex justify-content-center">
+                <div class="col">
+                    <div><canvas id="instantSpeed"></canvas></div>
+                    <div> <span id="speedValue"></span></div>
+                </div>
+            </div>
+
+            <!--history value-->
+            <div class="col-6 d-flex justify-content-center">
+                <canvas id="speedHistory"></canvas>
+            </div>
+
+        </div>
+
+        <div class="row d-flex justify-content-between">
+
+            <!--instant value-->
+            <div class="col-6 d-flex justify-content-center">
+                <div class="col">
+                    <div><canvas id="instantTemprature"></canvas></div>
+                    <div> <span id="tempratureValue"></span></div>
+                </div>
+            </div>
+
+            <!--history value-->
+            <div class="col-6 d-flex justify-content-center">
+                <canvas id="tempratureHistory"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Speed History Chart-->
+    <script>
+
+     var ctx = document.getElementById('speedHistory').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels:  @Html.Raw(ViewBag.JSonSpeedHistoryLabels),
+        datasets: [{
+            label: @Html.Raw(ViewBag.JsonSpeedHistoryLabel),
+            data: @Html.Raw(ViewBag.JsonSpeedHistoryValues),
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+
+        }
+    }
+});
+    </script>
+
+    <!-- Instant Speed Value -->
+    <script>
+var opts = {
+  angle: 0, // The span of the gauge arc
+  lineWidth: 0.4, // The line thickness
+  radiusScale: 0.8, // Relative radius
+  pointer: {
+    length: 0.6, // // Relative to gauge radius
+    strokeWidth: 0.042, // The thickness
+    color: '#000000' // Fill color
+  },
+  limitMax: false,     // If false, max value increases automatically if value > maxValue
+  limitMin: false,     // If true, the min value of the gauge will be fixed
+  colorStart: '#CF2D1B',   // Colors
+  colorStop: '#8FC0DA',    // just experiment with them
+  strokeColor: '#E0E0E0',  // to see which ones work best for you
+  generateGradient: true,
+  highDpiSupport: true,     // High resolution support
+  // renderTicks is Optional
+  renderTicks: {
+    divisions: 10,
+    divWidth: 1,
+    divLength: 0.3,
+    divColor: '#333333',
+    subDivisions: 2,
+    subLength: 0.3,
+    subWidth: 0.1,
+    subColor: '#666666'
+  }
+
+        };
+        var speedvalue = @Html.Raw(ViewBag.JsonInstantSpeedValue)
+        var target = document.getElementById('instantSpeed'); // your canvas element
+        
+var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+gauge.maxValue = 180; // set max gauge value
+gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        gauge.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge.set(speedvalue); // set actual value
+        document.getElementById('speedValue').innerText = speedvalue;
+    </script>
+
+    <!--Temprature History Chart-->
+    <script>
+
+     var ctx = document.getElementById('tempratureHistory').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels:  @Html.Raw(ViewBag.JSonTempratureHistoryLabels),
+        datasets: [{
+            label: @Html.Raw(ViewBag.JsonTempratureHistoryLabel),
+            data: @Html.Raw(ViewBag.JsonTempratureHistoryValues),
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+
+        }
+    }
+});
+    </script>
+
+    <!-- Instant Temprature Value -->
+    <script>
+        var opts = {
+            angle: 0.15, // The span of the gauge arc
+            lineWidth: 0.44, // The line thickness
+            radiusScale: 1, // Relative radius
+            pointer: {
+                length: 0.6, // // Relative to gauge radius
+                strokeWidth: 0.035, // The thickness
+                color: '#000000' // Fill color
+            },
+            limitMax: false,     // If false, max value increases automatically if value > maxValue
+            limitMin: false,     // If true, the min value of the gauge will be fixed
+            colorStart: '#6FADCF',   // Colors
+            colorStop: '#8FC0DA',    // just experiment with them
+            strokeColor: '#E0E0E0',  // to see which ones work best for you
+            generateGradient: true,
+            highDpiSupport: true,     // High resolution support
+
+        };
+        var tempratureValue = @Html.Raw(ViewBag.JsonInstantTempratureValue)
+        var target = document.getElementById('instantTemprature'); // your canvas element
+        var gauge = new Gauge(target).setOptions(opts); // create sexy gauge!
+        gauge.maxValue = 150; // set max gauge value
+        gauge.setMinValue(0);  // Prefer setter over gauge.minValue = 0
+        gauge.animationSpeed = 32; // set animation speed (32 is default value)
+        gauge.set(tempratureValue); // set actual value
+        document.getElementById('tempratureValue').innerText = tempratureValue;
+    </script>
+
+</body>
+</html>
