@@ -1,4 +1,5 @@
-﻿using Agca.Core.DataAccess.EntityFramework;
+﻿
+using Futek.Core.DataAccess.EntityFramework;
 using Futek.Telemetry.DataAccess.Abstract;
 using Futek.Telemetry.Entities;
 using System;

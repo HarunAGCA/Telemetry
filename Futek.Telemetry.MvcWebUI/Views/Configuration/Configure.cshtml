@@ -1,0 +1,53 @@
+﻿@using System.IO.Ports
+
+@model Futek.Telemetry.MvcWebUI.Models.ConfigurationViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 bg-danger">
+                
+            </div>
+            <div class="col-md-2 bg-primary ">
+                <form asp-controller="Configuration" asp-action="Configure" method="post">
+
+                    <label asp-for="PortName"> COM PORT : </label>
+                    <select asp-for="PortName">
+                        @foreach (var port in SerialPort.GetPortNames())
+                        {
+                            <option value="@port">@port</option>
+                        }
+                    </select>
+
+                    <label asp-for="BaudRate">Baud Rate : </label>
+                    <select asp-for="BaudRate">
+                        <option value="2400">2400 Baud</option>
+                        <option value="9600" selected>9600 Baud</option>
+                        <option value="19200">19200 Baud</option>
+                        <option value="38400">38400 Baud</option>
+                        <option value="57600">57600 Baud</option>
+                        <option value="74880">74880 Baud</option>
+                        <option value="115200">115200 Baud</option>
+                    </select>
+
+                    <input type="submit" value="Set"></input>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+

@@ -15,7 +15,7 @@ namespace Futek.Telemetry.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -44,15 +44,26 @@ namespace Futek.Telemetry.DataAccess.Migrations
                     b.Property<int>("SensorId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
+                    b.Property<double>("Value")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("ValueReadingTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SensorId");
+
                     b.ToTable("SensorValues");
+                });
+
+            modelBuilder.Entity("Futek.Telemetry.Entities.SensorValue", b =>
+                {
+                    b.HasOne("Futek.Telemetry.Entities.Sensor", "Sensor")
+                        .WithMany("SensorValues")
+                        .HasForeignKey("SensorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

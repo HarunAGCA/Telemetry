@@ -1,4 +1,4 @@
-﻿using Agca.Core.DataAccess;
+﻿using Futek.Core.DataAccess;
 using Futek.Telemetry.Entities;
 using System;
 using System.Collections.Generic;

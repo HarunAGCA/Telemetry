@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <Compile Remove="Migrations\20200312080439_AddProductReviews.cs" />
+    <Compile Remove="Migrations\20200312080439_AddProductReviews.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
@@ -20,13 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Futek.Core\Futek.Core.csproj" />
     <ProjectReference Include="..\Futek.Telemetry.Entities\Futek.Telemetry.Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Agca.Core">
-      <HintPath>..\Libraries\Agca.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>
