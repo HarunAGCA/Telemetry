@@ -15,4 +15,16 @@ geliştirilen telemetri sisteminin izleme merkezini kapsamaktadır.
  
  ![Arayüz](Images/UISS.png)
  
+ # Kullanılan Araçlar, Diller, Mimariler vs.
+ 
+  - ASP.NET Core MVC
+  - Entity Framework Core
+  - MS SQL Server
+  - SignalR
+  - C#
+  - JavaScript
+  - Katmanlı Mimari
+  - Arduino
+   
+  
  
