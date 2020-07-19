@@ -9,10 +9,4 @@
     <ProjectReference Include="..\Futek.Telemetry.Entities\Futek.Telemetry.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="Agca.Core">
-      <HintPath>..\Libraries\Agca.Core.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

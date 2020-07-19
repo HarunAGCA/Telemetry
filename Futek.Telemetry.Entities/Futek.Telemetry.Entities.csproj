@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Agca.Core">
-      <HintPath>..\Libraries\Agca.Core.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Futek.Core\Futek.Core.csproj" />
   </ItemGroup>
 
 </Project>

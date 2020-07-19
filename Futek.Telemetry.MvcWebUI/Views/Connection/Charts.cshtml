@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Charts</title>
+
+</head>
+<body style="background-color:#0e1a26;">
+    <div>
+        <div class="alert alert-primary d-flex p-2 flex-row justify-content-center" role="alert">
+            <strong><p id="alertMessage"></p></strong>
+        </div>
+
+        <div class="d-flex justify-content-around">
+            <button id="connectButton" type="button" class="btn btn-success">Bağlan</button>
+            <button id="testTheCommunicationButton" type="button" class="btn btn-secondary">Bağlantıyı Test Et</button>
+            <button id="startReceivingDataButton" type="button" class="btn btn-primary">Verileri Al</button>
+            <button id="stopReceivingDataButton" type="button" class="btn btn-warning">Verileri Almayı Durdur</button>
+            <button id="disconnectButton" type="button" class="btn btn-danger">Bağlantıyı Kes</button>
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-3">
+            <div id="speedGauge" class="gauge-container one"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="cellDiv" style="width:100%;height:350px"></div>
+        </div>
+        <div class="col-md-3">
+            <div class="row d-flex justify-content-center">
+                <canvas id="tepmratureGauge" style="width:100%; height:250px"></canvas>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <div class="row d-flex justify-content-center">
+                <h3 style="color:#f1e5d9">Kalan Enerji Miktarı</h3>
+                <svg id="energyChart" width="100%" height="265px" class="mt-4"></svg>
+            </div>
+        </div>
+    </div>
+
+    @section SignalRScriptsSection{
+        <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
+        <script src="~/lib/svg-gauge/src/gauge.js"></script>
+        <script src="~/lib/canvas-gauges/gauge.min.js"></script>
+        <script src="~/lib/amcharts4/core.js"></script>
+        <script src="~/lib/amcharts4/charts.js"></script>
+        <script src="~/lib/amcharts4/themes/animated.js"></script>
+        <script src="~/lib/d3/d3.v3.min.js"></script>
+        <script src="~/lib/d3/liquidFillGauge.js"></script>
+        <script src="~/js/sensorValuesCharts.js"></script>
+    }
+
+</body>
+</html>

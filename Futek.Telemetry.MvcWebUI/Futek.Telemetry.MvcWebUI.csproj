@@ -11,18 +11,32 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.IO.Ports" Version="4.7.0" />
   </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+
 
   <ItemGroup>
     <ProjectReference Include="..\Futek.Telemetry.Business\Futek.Telemetry.Business.csproj" />
-    <ProjectReference Include="..\Futek.Telemetry.Entities\Futek.Telemetry.Entities.csproj" />
+    <ProjectReference Include="D:\PROJECTS\FUTEK\Futek\Futek.Telemetry.Entities\Futek.Telemetry.Entities.csproj" />
+    <ProjectReference Include="D:\PROJECTS\FUTEK\Futek\Futek.Telemetry.Hardware\Futek.Telemetry.Hardware.csproj" />
   </ItemGroup>
 
+
+
   <ItemGroup>
-    <Reference Include="Agca.Core">
-      <HintPath>..\Libraries\Agca.Core.dll</HintPath>
-    </Reference>
+    <Content Update="wwwroot\lib\amcharts4\themes\kelly - Copy.js.map">
+      <DependentUpon>kelly - Copy.js</DependentUpon>
+    </Content>
   </ItemGroup>
 
 </Project>

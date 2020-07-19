@@ -8,7 +8,7 @@ namespace Futek.Telemetry.Entities.ComplexTypes
     {
         public int Id { get; set; }
         public string SensorName { get; set; }
-        public float Value { get; set; }
+        public double Value { get; set; }
         public DateTime ValueReadingTime { get; set; }
 
     }

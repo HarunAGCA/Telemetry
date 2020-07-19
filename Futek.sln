@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.Entities", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.Business", "Futek.Telemetry.Business\Futek.Telemetry.Business.csproj", "{27E712FC-08D0-4A56-82B2-34F037C087C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.MvcWebUI", "Futek.Telemetry.MvcWebUI\Futek.Telemetry.MvcWebUI.csproj", "{8663EB53-A894-4BE4-9EB7-060CD6222CBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.Hardware", "Futek.Telemetry.Hardware\Futek.Telemetry.Hardware.csproj", "{50EE3CC6-F447-4B93-B68C-00AD7E228876}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.ConsoleUI", "Futek.Telemetry.ConsoleUI\Futek.Telemetry.ConsoleUI.csproj", "{688733D9-328C-4249-A86E-3DEF1D2BFA33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Futek.Telemetry.MvcWebUI", "Futek.Telemetry.MvcWebUI\Futek.Telemetry.MvcWebUI.csproj", "{C697734D-4D80-4075-9B97-C45919B07FF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futek.Core", "Futek.Core\Futek.Core.csproj", "{0E09E379-3A9B-454B-9F86-33D830517169}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +35,22 @@ Global
 		{27E712FC-08D0-4A56-82B2-34F037C087C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E712FC-08D0-4A56-82B2-34F037C087C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E712FC-08D0-4A56-82B2-34F037C087C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8663EB53-A894-4BE4-9EB7-060CD6222CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8663EB53-A894-4BE4-9EB7-060CD6222CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8663EB53-A894-4BE4-9EB7-060CD6222CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8663EB53-A894-4BE4-9EB7-060CD6222CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EE3CC6-F447-4B93-B68C-00AD7E228876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EE3CC6-F447-4B93-B68C-00AD7E228876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EE3CC6-F447-4B93-B68C-00AD7E228876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EE3CC6-F447-4B93-B68C-00AD7E228876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688733D9-328C-4249-A86E-3DEF1D2BFA33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688733D9-328C-4249-A86E-3DEF1D2BFA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688733D9-328C-4249-A86E-3DEF1D2BFA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688733D9-328C-4249-A86E-3DEF1D2BFA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C697734D-4D80-4075-9B97-C45919B07FF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C697734D-4D80-4075-9B97-C45919B07FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C697734D-4D80-4075-9B97-C45919B07FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C697734D-4D80-4075-9B97-C45919B07FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E09E379-3A9B-454B-9F86-33D830517169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E09E379-3A9B-454B-9F86-33D830517169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E09E379-3A9B-454B-9F86-33D830517169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E09E379-3A9B-454B-9F86-33D830517169}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
